@@ -1,6 +1,6 @@
 # Model bake-off (gold_dev, 30 reviews)
 
-Gold labels: 41 items, labeled by Claude (see gold_labeling_notes.md). Recall = share of gold items matched by an extracted phrase from the same review (cosine >= t).
+Gold labels: 41 items, LLM-generated (see gold_labeling_notes.md). Recall = share of gold items matched by an extracted phrase from the same review (cosine >= t).
 
 | model               | provider   | family   |   recall@0.6 |   recall@0.7 |   recall@0.8 |   first_pass_valid |   failed |   evidence_found |   phrases |   unsure_reviews |   seconds |
 |:--------------------|:-----------|:---------|-------------:|-------------:|-------------:|-------------------:|---------:|-----------------:|----------:|-----------------:|----------:|

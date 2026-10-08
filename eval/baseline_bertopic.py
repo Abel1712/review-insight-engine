@@ -70,7 +70,7 @@ def main() -> None:
     ours = json.loads(METRICS.read_text(encoding="utf-8"))["evaluation"]["ours"]
     pct = lambda v: f"{v:.1%}"  # noqa: E731
     md = ["# Evaluation: our method vs BERTopic (70 held-out gold_test reviews)", "",
-          "Gold labels were written by Claude (an AI), not by hand; see `gold_labeling_notes.md`.", "",
+          "Gold labels are LLM-generated, not hand-written (human spot-check: 20/20); see `gold_labeling_notes.md`.", "",
           "| Method | Recall (all gold items) | Recall on multi-complaint reviews | Precision |",
           "|---|---|---|---|",
           f"| Ours, phrase level | {pct(ours['phrase_level']['recall'])} | "

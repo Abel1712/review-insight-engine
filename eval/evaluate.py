@@ -67,7 +67,7 @@ def main() -> None:
         from spotcheck import XLSX, make as make_spotcheck
         if not XLSX.exists():  # never overwrite a sheet Abel may already have filled in
             make_spotcheck("judge")
-    update_metrics(evaluation={"gold_labeled_by": "claude (AI), not hand-labeled", "n_test_reviews": len(test),
+    update_metrics(evaluation={"gold_labeled_by": "LLM-generated, not hand-labeled", "n_test_reviews": len(test),
                                "match_high": CFG["evaluate"]["match_high"], "match_low": CFG["evaluate"]["match_low"],
                                "ours": ours})
     print(f"OUR METHOD on {len(test)} gold_test reviews:")

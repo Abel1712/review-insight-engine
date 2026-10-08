@@ -1,6 +1,6 @@
 # gold_dev side by side: qwen/qwen3.8-27b, prompt v4
 
-| # | app | review | gold (Claude) | extracted (impact) |
+| # | app | review | gold (reference) | extracted (impact) |
 |---|---|---|---|---|
 | 1 | captain | రోజు ఒక 50 రూపాయలు ఆర్డర్ ఇస్తారు 29 కమీషన్ తీసుకుంటారు సూపర్ | very few orders per day<br> high commission charged | High commission on low fare (EARNINGS) |
 | 2 | captain | ok ko | none | *(none)* |

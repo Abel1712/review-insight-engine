@@ -1,6 +1,6 @@
 """Abel's human checks, as formatted Excel sheets:
   judge: 20 LLM-judge decisions from Step 7     -> metrics.json["judge_spotcheck"]
-  gold:  20 of Claude's gold_test labels         -> metrics.json["gold_spotcheck"] (human-AI agreement on the answer key)
+  gold:  20 of the LLM-generated gold_test labels -> metrics.json["gold_spotcheck"] (human-AI agreement on the answer key)
 
   python eval/spotcheck.py --make judge|gold   -> eval/<kind>_spotcheck.xlsx
   python eval/spotcheck.py judge|gold          -> reads Abel's answers, records agreement
@@ -23,7 +23,7 @@ SHEETS = {
                               "Save the file when done.",
               "widths": (4, 60, 32, 32, 16, 18, 24)},
     "gold": {"path": EVAL / "gold_spotcheck.xlsx", "answer": "Are these labels right? (yes / no)",
-             "instructions": "For each row: read the review, then Claude's labels (every complaint or praise it found). "
+             "instructions": "For each row: read the review, then the reference labels (every complaint or praise found). "
                              "Write yes if the labels are correct and nothing important is missing; no if something is "
                              "wrong or missing (optionally say what in the last column). Save the file when done.",
              "widths": (4, 9, 62, 42, 20, 36)},
@@ -51,7 +51,7 @@ def _gold_rows() -> pd.DataFrame:
         "#": range(1, len(test) + 1),
         "App": test["app"].values,
         "Review (what the user wrote)": test["text"].values,
-        "Claude's labels": test["gold_complaints"].str.replace(";", "\n").values,
+        "Reference labels": test["gold_complaints"].str.replace(";", "\n").values,
         SHEETS["gold"]["answer"]: "",
         "What's wrong or missing? (optional)": "",
     })
@@ -102,7 +102,7 @@ def record(kind: str) -> None:
         notes = sheet.iloc[:, -1].dropna().astype(str).str.strip()
         result["notes"] = [n for n in notes if n and n.lower() != "nan"]
     update_metrics(**{f"{kind}_spotcheck": result})
-    label = "Judge-human" if kind == "judge" else "Human agreement with Claude's gold labels"
+    label = "Judge-human" if kind == "judge" else "Human agreement with the LLM-generated gold labels"
     print(f"{label}: {agree.sum()}/{len(sheet)} = {agree.mean():.0%} (95% CI {lo:.0%}-{hi:.0%})")
 
 

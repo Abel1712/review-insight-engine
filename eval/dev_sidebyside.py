@@ -23,7 +23,7 @@ def main() -> None:
     model = reviews["model"].dropna().iloc[0]
 
     md = [f"# gold_dev side by side: {model}, prompt {PROMPT_VERSION}", "",
-          "| # | app | review | gold (Claude) | extracted (impact) |", "|---|---|---|---|---|"]
+          "| # | app | review | gold (reference) | extracted (impact) |", "|---|---|---|---|---|"]
     misses = []
     for i, r in enumerate(dev.itertuples(), 1):
         mine = aspects[aspects["review_id"] == r.review_id]

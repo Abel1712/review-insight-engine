@@ -1,13 +1,16 @@
 # Gold set: provenance and labeling rules
 
-**Who labeled it:** Claude (Anthropic, `claude-opus-5-5`), on 2026-10-06, at Abel's explicit request.
-**Not hand-labeled.** Any README, brief or resume text must say "labeled by Claude (an AI)", never "hand-labeled".
+**How it was labeled:** by an LLM (a different model family from every model in the pipeline), on 2026-10-06.
+**Not hand-labeled.** Any README, brief or resume text must say "LLM-generated labels", never "hand-labeled".
+**Human check:** 20 randomly sampled test labels were reviewed by hand; all 20 were judged correct
+(`eval/gold_spotcheck.xlsx`, `metrics.json` → `gold_spotcheck`).
 
 **Why this is still a meaningful check (and its limits):**
-- The labeler is a different model family from every model in the pipeline (OpenAI gpt-oss, Alibaba Qwen, Google Gemini), so this is a cross-family comparison, not a model grading itself.
+- The labeling model is from a different family than every model in the pipeline (OpenAI gpt-oss, Alibaba Qwen,
+  Google Gemini), so this is a cross-family comparison, not a model grading itself.
 - Labels were written before any extraction ran on real reviews, so they can't copy the pipeline's output.
-- Limit: LLMs share habits (phrasing, what they split or skip), so agreement may be higher than it would be with a human labeler. Recall numbers should be read with that in mind.
-- Recommended: Abel spot-checks 20 labels; the human-AI agreement rate goes in `metrics.json`.
+- Limit: LLMs share habits (phrasing, what they split or skip), so agreement may be higher than it would be with a
+  human labeler. Recall numbers should be read with that in mind; the 20-label human check (95% CI 84-100%) is small.
 
 **Rules applied to all 100 reviews:**
 1. Label every specific complaint and every specific praise, one issue per phrase, in plain English (any source language: Hindi, Hinglish, Telugu, Malayalam).

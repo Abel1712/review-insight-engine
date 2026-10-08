@@ -87,7 +87,7 @@ def main() -> None:
     print(f"\n-> MAIN: {main_pick['model']}   SECONDARY (different family): {secondary_pick['model']}")
 
     md = ["# Model bake-off (gold_dev, 30 reviews)", "",
-          f"Gold labels: {n_gold} items, labeled by Claude (see gold_labeling_notes.md). "
+          f"Gold labels: {n_gold} items, LLM-generated (see gold_labeling_notes.md). "
           "Recall = share of gold items matched by an extracted phrase from the same review (cosine >= t).", "",
           ok.drop(columns=[c for c in ("error",) if c in ok]).to_markdown(index=False), "",
           f"**Main:** {main_pick['model']} (best Groq model by recall@0.7, then evidence accuracy)  ",

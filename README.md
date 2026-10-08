@@ -21,7 +21,7 @@ Interactive viewer: **[rapido-review-insights.streamlit.app](https://rapido-revi
 | This pipeline, theme level | 43.8% | 44.0% | n/a |
 | BERTopic baseline (one topic per review) | 15.2% | 17.3% | n/a |
 
-The baseline was made fair, not a strawman: same embeddings, outliers reassigned, topics named with the same prompt and model. **Test labels were written by Claude (an AI), not by hand** ([labeling notes](eval/gold_labeling_notes.md)). Human spot-checks: 20/20 sampled labels judged correct, and 20/20 evaluation-judge decisions agreed with (small samples: 95% CI 84–100%).
+The baseline was made fair, not a strawman: same embeddings, outliers reassigned, topics named with the same prompt and model. **Test labels were LLM-generated, not hand-written**, using a different model family from the pipeline's models ([labeling notes](eval/gold_labeling_notes.md)). Human spot-checks: 20/20 sampled labels judged correct, and 20/20 evaluation-judge decisions agreed with (small samples: 95% CI 84–100%).
 
 ## How it works (adapted QualIT)
 
@@ -67,7 +67,7 @@ Based on [QualIT: LLM Enhanced Topic Modeling (arXiv:2409.15626)](https://arxiv.
 - **Reviewers skew negative**: these are relative signals, not population rates.
 - English-locale Play Store only (Devanagari-script Hindi mostly excluded); review date ≠ ride date.
 - **585 reviews** were extracted (29–45 per month per app) because the free tier allows a limited number of tokens per day; trend intervals are wide.
-- Test labels written by an AI (Claude), human-checked on a sample of 20 only; cross-model agreement on impact labels is moderate (62.9%).
+- Test labels are LLM-generated, human-checked on a sample of 20 only; cross-model agreement on impact labels is moderate (62.9%).
 - The post-CCPA window is a few weeks: no causal claim about the order.
 
 ## v2 ideas

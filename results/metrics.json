@@ -285,7 +285,7 @@
     }
   },
   "gold": {
-    "labeled_by": "claude (claude-opus-5-5), at Abel's request; not hand-labeled",
+    "labeled_by": "LLM-generated (different model family from the pipeline); not hand-labeled",
     "n_reviews": 100,
     "n_dev": 30,
     "n_test": 70,
@@ -1170,7 +1170,7 @@
     "label_model": "openai/gpt-oss-120b"
   },
   "evaluation": {
-    "gold_labeled_by": "claude (AI), not hand-labeled",
+    "gold_labeled_by": "LLM-generated, not hand-labeled",
     "n_test_reviews": 70,
     "match_high": 0.8,
     "match_low": 0.6,
