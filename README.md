@@ -2,12 +2,16 @@
 
 **Turns thousands of messy Play Store reviews into a one-page, prioritized product brief a PM can act on, measures its own accuracy, and runs entirely on free tools.**
 
+**[Live dashboard](https://rapido-review-insights.streamlit.app/)** · **[One-page brief](BRIEF.md)** · **[Accuracy report](eval/results.md)**
+
 ## Headline finding
 Riders' biggest complaint is captains asking for more money than the app shows (**23.7%** of rider reviews: overcharging versus the app fare, plus **13.6%**: demands for extra cash). Captains' biggest complaint is that earnings don't cover costs (**14.4%**). These may be two sides of one pricing problem. → **[Read the brief](BRIEF.md)**
 
+![Dashboard: rider complaint themes ranked by priority](analysis/figures/dashboard.png)
+
 ![Rider complaints about tips and extra money by month](analysis/figures/trend_tipping.png)
 
-Interactive viewer: `streamlit run dashboard/app.py` (rankings, real quotes per theme, safety, trend, accuracy).
+Interactive viewer: **[rapido-review-insights.streamlit.app](https://rapido-review-insights.streamlit.app/)** (rankings, real quotes per theme, safety, trend, accuracy), or locally with `streamlit run dashboard/app.py`.
 
 ## Results (70 held-out reviews, never used for tuning)
 
