@@ -1,0 +1,1452 @@
+{
+  "collect": {
+    "collected_at": "2026-10-06T11:55:10+05:30",
+    "lang": "en",
+    "country": "in",
+    "timezone": "Asia/Kolkata",
+    "apps": {
+      "rider": {
+        "app_id": "com.rapido.passenger",
+        "n_reviews": 73200,
+        "oldest": "2026-02-28T12:43:13+05:30",
+        "newest": "2026-10-05T11:15:50+05:30",
+        "stop_reason": "passed start month 2026-03"
+      },
+      "captain": {
+        "app_id": "com.rapido.rider",
+        "n_reviews": 29600,
+        "oldest": "2026-02-28T14:44:53+05:30",
+        "newest": "2026-10-05T11:28:47+05:30",
+        "stop_reason": "passed start month 2026-03"
+      }
+    },
+    "raw_reviews_per_month": {
+      "captain": {
+        "2026-10": 597,
+        "2026-09": 3208,
+        "2026-08": 2877,
+        "2026-07": 2928,
+        "2026-06": 2840,
+        "2026-05": 3619,
+        "2026-04": 8417,
+        "2026-03": 5060,
+        "2026-02": 54
+      },
+      "rider": {
+        "2026-10": 1497,
+        "2026-09": 11065,
+        "2026-08": 13901,
+        "2026-07": 10554,
+        "2026-06": 10422,
+        "2026-05": 9385,
+        "2026-04": 8243,
+        "2026-03": 7953,
+        "2026-02": 180
+      }
+    }
+  },
+  "clean": {
+    "rows_per_rule": {
+      "rider": {
+        "raw": 73200,
+        "duplicate_review_id": 0,
+        "outside_month_range": 180,
+        "empty": 0,
+        "no_letters": 991,
+        "all_generic": 26607,
+        "spam_repeats": 0,
+        "short_repeats_kept": 3334,
+        "clean": 45422
+      },
+      "captain": {
+        "raw": 29600,
+        "duplicate_review_id": 0,
+        "outside_month_range": 54,
+        "empty": 0,
+        "no_letters": 501,
+        "all_generic": 11398,
+        "spam_repeats": 0,
+        "short_repeats_kept": 784,
+        "clean": 17647
+      }
+    },
+    "no_specific_issue_by_month": {
+      "rider": {
+        "2026-03": {
+          "no_specific_issue": 2893,
+          "total_reviews": 7953,
+          "share": 0.3638
+        },
+        "2026-04": {
+          "no_specific_issue": 2602,
+          "total_reviews": 8243,
+          "share": 0.3157
+        },
+        "2026-05": {
+          "no_specific_issue": 3414,
+          "total_reviews": 9385,
+          "share": 0.3638
+        },
+        "2026-06": {
+          "no_specific_issue": 4181,
+          "total_reviews": 10422,
+          "share": 0.4012
+        },
+        "2026-07": {
+          "no_specific_issue": 4350,
+          "total_reviews": 10554,
+          "share": 0.4122
+        },
+        "2026-08": {
+          "no_specific_issue": 5134,
+          "total_reviews": 13901,
+          "share": 0.3693
+        },
+        "2026-09": {
+          "no_specific_issue": 4405,
+          "total_reviews": 11065,
+          "share": 0.3981
+        },
+        "2026-10": {
+          "no_specific_issue": 619,
+          "total_reviews": 1497,
+          "share": 0.4135
+        }
+      },
+      "captain": {
+        "2026-03": {
+          "no_specific_issue": 2530,
+          "total_reviews": 5060,
+          "share": 0.5
+        },
+        "2026-04": {
+          "no_specific_issue": 4028,
+          "total_reviews": 8417,
+          "share": 0.4786
+        },
+        "2026-05": {
+          "no_specific_issue": 1473,
+          "total_reviews": 3619,
+          "share": 0.407
+        },
+        "2026-06": {
+          "no_specific_issue": 907,
+          "total_reviews": 2840,
+          "share": 0.3194
+        },
+        "2026-07": {
+          "no_specific_issue": 939,
+          "total_reviews": 2928,
+          "share": 0.3207
+        },
+        "2026-08": {
+          "no_specific_issue": 914,
+          "total_reviews": 2877,
+          "share": 0.3177
+        },
+        "2026-09": {
+          "no_specific_issue": 921,
+          "total_reviews": 3208,
+          "share": 0.2871
+        },
+        "2026-10": {
+          "no_specific_issue": 187,
+          "total_reviews": 597,
+          "share": 0.3132
+        }
+      }
+    },
+    "spam_texts": [],
+    "sample_by_month": {
+      "captain": {
+        "2026-03": {
+          "available": 2530,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-04": {
+          "available": 4389,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-05": {
+          "available": 2146,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-06": {
+          "available": 1933,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-07": {
+          "available": 1989,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-08": {
+          "available": 1963,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-09": {
+          "available": 2287,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-10": {
+          "available": 410,
+          "sampled": 200,
+          "flag_under_target": false
+        }
+      },
+      "rider": {
+        "2026-03": {
+          "available": 5060,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-04": {
+          "available": 5641,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-05": {
+          "available": 5971,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-06": {
+          "available": 6241,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-07": {
+          "available": 6204,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-08": {
+          "available": 8767,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-09": {
+          "available": 6660,
+          "sampled": 200,
+          "flag_under_target": false
+        },
+        "2026-10": {
+          "available": 878,
+          "sampled": 200,
+          "flag_under_target": false
+        }
+      }
+    },
+    "partial_month": "2026-10",
+    "n_sample": 3200,
+    "n_sample_by_app": {
+      "captain": 1600,
+      "rider": 1600
+    },
+    "share_short_reviews_lt4_words": 0.2213
+  },
+  "safety_net": {
+    "keyword_flag_rate": {
+      "captain": 0.1056,
+      "rider": 0.1356
+    },
+    "keyword_category_rate": {
+      "captain": {
+        "safety": 0.0112,
+        "money": 0.0944,
+        "tip": 0.0013
+      },
+      "rider": {
+        "safety": 0.03,
+        "money": 0.1037,
+        "tip": 0.0075
+      }
+    },
+    "n_seeds": 22,
+    "similarity_threshold": 0.0212,
+    "calibration": {
+      "n_dev": 30,
+      "n_critical_dev": 7,
+      "n_caught_by_keyword": 5
+    },
+    "similarity_flag_rate": {
+      "captain": 0.4394,
+      "rider": 0.4363
+    },
+    "any_flag_rate": {
+      "captain": 0.4675,
+      "rider": 0.4494
+    }
+  },
+  "gold": {
+    "labeled_by": "claude (claude-opus-5-5), at Abel's request; not hand-labeled",
+    "n_reviews": 100,
+    "n_dev": 30,
+    "n_test": 70,
+    "n_gold_items": 146,
+    "share_reviews_2plus_gold_items": 0.38
+  },
+  "bakeoff": {
+    "n_dev_reviews": 30,
+    "n_gold_items": 41,
+    "results": [
+      {
+        "model": "qwen/qwen3.8-27b",
+        "provider": "groq",
+        "family": "qwen",
+        "recall@0.6": 0.854,
+        "recall@0.7": 0.756,
+        "recall@0.8": 0.561,
+        "first_pass_valid": 1.0,
+        "failed": 0.0,
+        "evidence_found": 1.0,
+        "phrases": 35.0,
+        "unsure_reviews": 4.0,
+        "seconds": 0.0
+      },
+      {
+        "model": "openai/gpt-oss-120b",
+        "provider": "groq",
+        "family": "openai",
+        "recall@0.6": 0.732,
+        "recall@0.7": 0.634,
+        "recall@0.8": 0.512,
+        "first_pass_valid": 1.0,
+        "failed": 0.0,
+        "evidence_found": 1.0,
+        "phrases": 35.0,
+        "unsure_reviews": 2.0,
+        "seconds": 0.1
+      },
+      {
+        "model": "openai/gpt-oss-20b",
+        "provider": "groq",
+        "family": "openai",
+        "recall@0.6": 0.61,
+        "recall@0.7": 0.488,
+        "recall@0.8": 0.341,
+        "first_pass_valid": 0.967,
+        "failed": 0.0,
+        "evidence_found": 0.968,
+        "phrases": 31.0,
+        "unsure_reviews": 0.0,
+        "seconds": 0.1
+      }
+    ],
+    "main": "qwen/qwen3.8-27b",
+    "secondary": "openai/gpt-oss-120b",
+    "not_scored": [
+      "gemini-3.8-flash"
+    ]
+  },
+  "consistency": {
+    "main": "qwen/qwen3.8-27b",
+    "secondary": "openai/gpt-oss-120b",
+    "prompt_version": "v4",
+    "n_reviews": 50,
+    "results": {
+      "0.6": {
+        "aspect_agreement": 0.793,
+        "impact_agreement": 0.561,
+        "matched_pairs": 44,
+        "neg_pairs": 41
+      },
+      "0.7": {
+        "aspect_agreement": 0.667,
+        "impact_agreement": 0.629,
+        "matched_pairs": 37,
+        "neg_pairs": 35
+      },
+      "0.8": {
+        "aspect_agreement": 0.45,
+        "impact_agreement": 0.652,
+        "matched_pairs": 25,
+        "neg_pairs": 23
+      }
+    },
+    "verdict_at_0.7": "BELOW 80%: improve the prompt on gold_dev"
+  },
+  "extract": {
+    "prompt_version": "v4",
+    "n_reviews": 585,
+    "n_aspects": 662,
+    "final_sample_by_cell": {
+      "captain|2026-03": 45,
+      "captain|2026-04": 45,
+      "captain|2026-05": 37,
+      "captain|2026-06": 33,
+      "captain|2026-07": 32,
+      "captain|2026-08": 37,
+      "captain|2026-09": 29,
+      "captain|2026-10": 40,
+      "rider|2026-03": 37,
+      "rider|2026-04": 38,
+      "rider|2026-05": 37,
+      "rider|2026-06": 35,
+      "rider|2026-07": 34,
+      "rider|2026-08": 36,
+      "rider|2026-09": 37,
+      "rider|2026-10": 33
+    },
+    "avg_aspects_per_review": 1.132,
+    "share_reviews_2plus_aspects": 0.3145,
+    "share_short_reviews_with_aspect": 0.2701,
+    "failed_reviews": 0,
+    "retried_reviews": 1,
+    "not_extracted_daily_quota": 135,
+    "disputes": {
+      "flagged": 177,
+      "rejected": 158,
+      "confirmed": 5,
+      "added_by_tiebreak": 14,
+      "tiebreak_failed": 0
+    },
+    "model_share": {
+      "qwen/qwen3.8-27b": 0.9789,
+      "openai/gpt-oss-120b": 0.0211
+    }
+  },
+  "verify": {
+    "n_in": 662,
+    "n_kept": 629,
+    "evidence_min_ratio": 90,
+    "n_dropped_evidence": 5,
+    "meaning_threshold": 0.5508,
+    "meaning_threshold_from_n_good_dev_aspects": 30,
+    "n_dropped_meaning": 28,
+    "dropped_examples": [
+      {
+        "phrase": "App not working for captain",
+        "evidence": "this app is not open... but not working",
+        "check": "evidence"
+      },
+      {
+        "phrase": "professional and well trained team",
+        "evidence": "excellent and professional team... special Captain is well trained in all manner",
+        "check": "evidence"
+      },
+      {
+        "phrase": "Fare increased from 73 to 110",
+        "evidence": "books rapido for 73 rs... fare 110 rs!",
+        "check": "evidence"
+      },
+      {
+        "phrase": "GST system is not good",
+        "evidence": "GST ... NOT GOOD",
+        "check": "evidence"
+      },
+      {
+        "phrase": "Document verification stuck",
+        "evidence": "documents I provided... were still being verified",
+        "check": "evidence"
+      },
+      {
+        "phrase": "High commission on low fare",
+        "evidence": "50 రూపాయలు ఆర్డర్ ఇస్తారు 29 కమీషన్ తీసుకుంటారు",
+        "check": "meaning"
+      },
+      {
+        "phrase": "Uncovered traffic fine loss",
+        "evidence": "10000 ka Chala kon bharga rapido wala",
+        "check": "meaning"
+      },
+      {
+        "phrase": "Dropped at wrong location",
+        "evidence": "एग्जाम सेंटर के बदले मुझे कहीं और छोड़ दिया",
+        "check": "meaning"
+      },
+      {
+        "phrase": "Support gave false excuse",
+        "evidence": "आपने अपना डेस्टिनेशन चेंज किया है इसलिए पैसे अधिक लगे",
+        "check": "meaning"
+      },
+      {
+        "phrase": "App is useless",
+        "evidence": "faltu ret det ahe",
+        "check": "meaning"
+      }
+    ]
+  },
+  "cluster": {
+    "neg": {
+      "n_phrases": 543,
+      "k": 20,
+      "silhouette": 0.1539,
+      "best_silhouette": 0.1636,
+      "k_rule": "largest K within 0.01 of best; K <= n/10",
+      "silhouette_by_k": {
+        "5": 0.1636,
+        "6": 0.1457,
+        "7": 0.1594,
+        "8": 0.1458,
+        "9": 0.096,
+        "10": 0.1402,
+        "11": 0.1382,
+        "12": 0.1318,
+        "13": 0.1466,
+        "14": 0.1271,
+        "15": 0.1324,
+        "16": 0.1498,
+        "17": 0.1495,
+        "18": 0.1329,
+        "19": 0.1524,
+        "20": 0.1539
+      }
+    },
+    "pos": {
+      "n_phrases": 86,
+      "k": 8,
+      "silhouette": 0.2161,
+      "best_silhouette": 0.2175,
+      "k_rule": "largest K within 0.01 of best; K <= n/10",
+      "silhouette_by_k": {
+        "5": 0.1521,
+        "6": 0.2038,
+        "7": 0.2175,
+        "8": 0.2161
+      }
+    }
+  },
+  "themes": {
+    "n_clusters": 28,
+    "n_themes": 22,
+    "n_negative_themes": 16,
+    "merges": [
+      {
+        "merged": "neg_01 'Captains overcharging passengers'",
+        "into": "neg_16 'Captains overcharging customers'",
+        "label_cosine": 0.962,
+        "label_ratio": 82.53968253968254,
+        "centroid_cosine": 0.929,
+        "centroid_cut": 0.967
+      },
+      {
+        "merged": "neg_07 'Unexpected high fare complaints'",
+        "into": "neg_16 'Captains overcharging customers'",
+        "label_cosine": 0.709,
+        "label_ratio": 38.70967741935484,
+        "centroid_cosine": 0.971,
+        "centroid_cut": 0.967
+      },
+      {
+        "merged": "neg_06 'Captains demand extra payment'",
+        "into": "neg_11 'Captains demanding extra cash'",
+        "label_cosine": 0.965,
+        "label_ratio": 75.86206896551724,
+        "centroid_cosine": 0.914,
+        "centroid_cut": 0.967
+      },
+      {
+        "merged": "neg_09 'Driver and rider safety concerns'",
+        "into": "neg_19 'Rider misconduct and safety issues'",
+        "label_cosine": 0.857,
+        "label_ratio": 66.66666666666666,
+        "centroid_cosine": 0.946,
+        "centroid_cut": 0.967
+      },
+      {
+        "merged": "pos_00 'Polite captain interaction'",
+        "into": "pos_02 'Courteous captain driving behavior'",
+        "label_cosine": 0.853,
+        "label_ratio": 53.333333333333336,
+        "centroid_cosine": 0.855,
+        "centroid_cut": 0.967
+      },
+      {
+        "merged": "pos_07 'High earnings for captains'",
+        "into": "pos_05 'Captains earn good income'",
+        "label_cosine": 0.933,
+        "label_ratio": 66.66666666666666,
+        "centroid_cosine": 0.914,
+        "centroid_cut": 0.967
+      }
+    ],
+    "by_app": {
+      "captain": {
+        "n_reviews": 298,
+        "negative": [
+          {
+            "theme": "Captains earning insufficient due to high costs",
+            "sentiment": "neg",
+            "n_reviews": 43,
+            "frequency": 0.1443,
+            "avg_severity": 3.98,
+            "priority": 0.5745,
+            "avg_stars": 1.65,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "Your rate is too low.",
+              "20 rs main 5 km bike calwti hai usme bike ka petrol bhi nahi niklta"
+            ]
+          },
+          {
+            "theme": "Unresponsive customer support",
+            "sentiment": "neg",
+            "n_reviews": 40,
+            "frequency": 0.1342,
+            "avg_severity": 3.05,
+            "priority": 0.4089,
+            "avg_stars": 1.32,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "call support not good",
+              "coustomer care not support"
+            ]
+          },
+          {
+            "theme": "Insufficient earnings for captains",
+            "sentiment": "neg",
+            "n_reviews": 19,
+            "frequency": 0.0638,
+            "avg_severity": 3.95,
+            "priority": 0.2518,
+            "avg_stars": 1.79,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "earning bahot kam he",
+              "kachra paisa banta hai ispe"
+            ]
+          },
+          {
+            "theme": "Insufficient order volume",
+            "sentiment": "neg",
+            "n_reviews": 18,
+            "frequency": 0.0604,
+            "avg_severity": 3.85,
+            "priority": 0.2326,
+            "avg_stars": 2.33,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "no orders",
+              "நீ orders"
+            ]
+          },
+          {
+            "theme": "Captains receiving low per‑km fares",
+            "sentiment": "neg",
+            "n_reviews": 17,
+            "frequency": 0.057,
+            "avg_severity": 4.0,
+            "priority": 0.2282,
+            "avg_stars": 1.47,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "it gives 6rs / km",
+              "low price"
+            ]
+          },
+          {
+            "theme": "Frequent app crashes and login issues",
+            "sentiment": "neg",
+            "n_reviews": 22,
+            "frequency": 0.0738,
+            "avg_severity": 3.0,
+            "priority": 0.2215,
+            "avg_stars": 1.77,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "not working",
+              "not working"
+            ]
+          },
+          {
+            "theme": "Captains facing account suspension and login issues",
+            "sentiment": "neg",
+            "n_reviews": 18,
+            "frequency": 0.0604,
+            "avg_severity": 3.5,
+            "priority": 0.2114,
+            "avg_stars": 1.61,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "my account temporarily suspended",
+              "My account was wrongfully suspended"
+            ]
+          },
+          {
+            "theme": "Inaccurate navigation and distance",
+            "sentiment": "neg",
+            "n_reviews": 18,
+            "frequency": 0.0604,
+            "avg_severity": 3.14,
+            "priority": 0.1894,
+            "avg_stars": 2.5,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "plz update navigation system",
+              "your GPR is location this very lost"
+            ]
+          },
+          {
+            "theme": "Captains feel financially exploited",
+            "sentiment": "neg",
+            "n_reviews": 14,
+            "frequency": 0.047,
+            "avg_severity": 3.93,
+            "priority": 0.1846,
+            "avg_stars": 1.64,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "The way they treat their captains is terrible",
+              "drivers are asking for an extra amount"
+            ]
+          },
+          {
+            "theme": "Excessive commission charges",
+            "sentiment": "neg",
+            "n_reviews": 11,
+            "frequency": 0.0369,
+            "avg_severity": 4.0,
+            "priority": 0.1477,
+            "avg_stars": 1.09,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "took too much commission",
+              "company apna commission nahi chodti"
+            ]
+          },
+          {
+            "theme": "Captains lose earnings due to app issues",
+            "sentiment": "neg",
+            "n_reviews": 8,
+            "frequency": 0.0268,
+            "avg_severity": 3.75,
+            "priority": 0.1007,
+            "avg_stars": 1.25,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "I don't get a ride. Where 10-20 drivers are standing everyone gets a ride but I don't get one",
+              "The verification call would go out and then the ride would be canceled."
+            ]
+          },
+          {
+            "theme": "Captains experience ride scarcity",
+            "sentiment": "neg",
+            "n_reviews": 7,
+            "frequency": 0.0235,
+            "avg_severity": 4.14,
+            "priority": 0.0973,
+            "avg_stars": 1.57,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "to much waiting for ride",
+              "ride nhi milti hai time se"
+            ]
+          },
+          {
+            "theme": "Inadequate captain support",
+            "sentiment": "neg",
+            "n_reviews": 8,
+            "frequency": 0.0268,
+            "avg_severity": 3.25,
+            "priority": 0.0872,
+            "avg_stars": 2.38,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "small amount of assistance is provided from Rapido to their captain",
+              "customer care not support two captains"
+            ]
+          },
+          {
+            "theme": "Captains lack safety and support",
+            "sentiment": "neg",
+            "n_reviews": 6,
+            "frequency": 0.0201,
+            "avg_severity": 4.11,
+            "priority": 0.0828,
+            "avg_stars": 1.67,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "No safely Drive",
+              "रेपिडो के साथ ड्राइवरों की कोई सुरक्षा और सम्मान नहीं है"
+            ]
+          },
+          {
+            "theme": "Verification delays for captains",
+            "sentiment": "neg",
+            "n_reviews": 6,
+            "frequency": 0.0201,
+            "avg_severity": 4.0,
+            "priority": 0.0805,
+            "avg_stars": 1.67,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "under verification in past 5,6 days",
+              "it is taking more time for documents verification"
+            ]
+          },
+          {
+            "theme": "High subscription fees",
+            "sentiment": "neg",
+            "n_reviews": 5,
+            "frequency": 0.0168,
+            "avg_severity": 4.0,
+            "priority": 0.0671,
+            "avg_stars": 2.0,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "raise the price of subscription and it is too high",
+              "సబ్ స్టేషన్ ఫీజ్"
+            ]
+          }
+        ],
+        "positive": [
+          {
+            "theme": "High earning potential",
+            "sentiment": "pos",
+            "n_reviews": 11,
+            "frequency": 0.0369,
+            "avg_severity": NaN,
+            "priority": NaN,
+            "avg_stars": 5.0,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "very good for earning money",
+              "good in earning"
+            ]
+          },
+          {
+            "theme": "Responsive support and safety",
+            "sentiment": "pos",
+            "n_reviews": 4,
+            "frequency": 0.0134,
+            "avg_severity": NaN,
+            "priority": NaN,
+            "avg_stars": 5.0,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "customer support system is very good n supportive",
+              "super support for my family"
+            ]
+          },
+          {
+            "theme": "Steady demand for quick orders",
+            "sentiment": "pos",
+            "n_reviews": 3,
+            "frequency": 0.0101,
+            "avg_severity": NaN,
+            "priority": NaN,
+            "avg_stars": 5.0,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "public helpfull",
+              "fude delevri onli"
+            ]
+          },
+          {
+            "theme": "Courteous captain driving behavior",
+            "sentiment": "pos",
+            "n_reviews": 1,
+            "frequency": 0.0034,
+            "avg_severity": NaN,
+            "priority": NaN,
+            "avg_stars": 5.0,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "The simple greeting of the captain"
+            ]
+          }
+        ],
+        "robustness_top5_overlap_priority_vs_frequency": 4,
+        "top5_by_priority": [
+          "Captains earning insufficient due to high costs",
+          "Unresponsive customer support",
+          "Insufficient earnings for captains",
+          "Insufficient order volume",
+          "Captains receiving low per‑km fares"
+        ],
+        "top5_by_frequency": [
+          "Captains earning insufficient due to high costs",
+          "Unresponsive customer support",
+          "Frequent app crashes and login issues",
+          "Insufficient earnings for captains",
+          "Insufficient order volume"
+        ]
+      },
+      "rider": {
+        "n_reviews": 287,
+        "negative": [
+          {
+            "theme": "Captains overcharging passengers",
+            "sentiment": "neg",
+            "n_reviews": 68,
+            "frequency": 0.2369,
+            "avg_severity": 3.98,
+            "priority": 0.9422,
+            "avg_stars": 1.75,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "They show one kind of far the in the app and after travelling they charge high fare",
+              "they take extra money not as per show in the app"
+            ]
+          },
+          {
+            "theme": "Captains demand extra cash",
+            "sentiment": "neg",
+            "n_reviews": 39,
+            "frequency": 0.1359,
+            "avg_severity": 3.79,
+            "priority": 0.5152,
+            "avg_stars": 1.62,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "sabko extra pesa chahiye",
+              "if piccked, they are asking for extra money"
+            ]
+          },
+          {
+            "theme": "Captains rude and demand extra cash",
+            "sentiment": "neg",
+            "n_reviews": 22,
+            "frequency": 0.0767,
+            "avg_severity": 4.15,
+            "priority": 0.318,
+            "avg_stars": 1.77,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "sometimes rude driver comes",
+              "Riders are very rude"
+            ]
+          },
+          {
+            "theme": "Captains frequently cancel rides",
+            "sentiment": "neg",
+            "n_reviews": 17,
+            "frequency": 0.0592,
+            "avg_severity": 4.68,
+            "priority": 0.2775,
+            "avg_stars": 1.53,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "driver accepted my ride request but deliberately canceled it after making me wait",
+              "non acceptance of rides when needed to reach destination on time"
+            ]
+          },
+          {
+            "theme": "Unresponsive Customer Support",
+            "sentiment": "neg",
+            "n_reviews": 26,
+            "frequency": 0.0906,
+            "avg_severity": 3.0,
+            "priority": 0.2718,
+            "avg_stars": 1.15,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "मैं बार बार कंप्लेंट किया पर कोई सुनवाई नहीं हुआ",
+              "customer executive is not responding from last 30 mits"
+            ]
+          },
+          {
+            "theme": "Captains Unavailable and Unresponsive",
+            "sentiment": "neg",
+            "n_reviews": 15,
+            "frequency": 0.0523,
+            "avg_severity": 4.12,
+            "priority": 0.2152,
+            "avg_stars": 1.27,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "I never get a captain whenever I need",
+              "trying to book rapido for the last hour, no captin is available to accept my ride"
+            ]
+          },
+          {
+            "theme": "Excessive ride booking delays",
+            "sentiment": "neg",
+            "n_reviews": 17,
+            "frequency": 0.0592,
+            "avg_severity": 3.5,
+            "priority": 0.2073,
+            "avg_stars": 1.18,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "waiting time is too long",
+              "never gets the ride on time"
+            ]
+          },
+          {
+            "theme": "App location and distance errors",
+            "sentiment": "neg",
+            "n_reviews": 5,
+            "frequency": 0.0174,
+            "avg_severity": 2.8,
+            "priority": 0.0488,
+            "avg_stars": 3.0,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "sometimes location issue",
+              "because of the app default it's showing the 74 km on the driver app"
+            ]
+          },
+          {
+            "theme": "Account suspension and limits",
+            "sentiment": "neg",
+            "n_reviews": 4,
+            "frequency": 0.0139,
+            "avg_severity": 3.0,
+            "priority": 0.0418,
+            "avg_stars": 2.0,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "temporarily suspended my account",
+              "it's saying my account is blocked"
+            ]
+          },
+          {
+            "theme": "App crashes and poor support",
+            "sentiment": "neg",
+            "n_reviews": 3,
+            "frequency": 0.0105,
+            "avg_severity": 3.67,
+            "priority": 0.0383,
+            "avg_stars": 2.33,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "I looked for help in rapido didn't got response",
+              "The app keeps closing after the recent update"
+            ]
+          },
+          {
+            "theme": "Captain document verification delays",
+            "sentiment": "neg",
+            "n_reviews": 1,
+            "frequency": 0.0035,
+            "avg_severity": 4.0,
+            "priority": 0.0139,
+            "avg_stars": 5.0,
+            "flag_high_severity_high_stars": true,
+            "examples": [
+              "under verification problem my documents"
+            ]
+          },
+          {
+            "theme": "High subscription fees",
+            "sentiment": "neg",
+            "n_reviews": 1,
+            "frequency": 0.0035,
+            "avg_severity": 3.0,
+            "priority": 0.0105,
+            "avg_stars": 1.0,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "first 5days it's applicable discount on rides . after 5 days Normal ride fares are charged"
+            ]
+          }
+        ],
+        "positive": [
+          {
+            "theme": "Competitive and Affordable Pricing",
+            "sentiment": "pos",
+            "n_reviews": 14,
+            "frequency": 0.0488,
+            "avg_severity": NaN,
+            "priority": NaN,
+            "avg_stars": 5.0,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "affordable price",
+              "reasonable prices"
+            ]
+          },
+          {
+            "theme": "Courteous and safe captains",
+            "sentiment": "pos",
+            "n_reviews": 14,
+            "frequency": 0.0488,
+            "avg_severity": NaN,
+            "priority": NaN,
+            "avg_stars": 5.0,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "Drivers bahavior nice",
+              "Driver is Kind Man and Good Human being"
+            ]
+          },
+          {
+            "theme": "Safe and affordable rides",
+            "sentiment": "pos",
+            "n_reviews": 14,
+            "frequency": 0.0488,
+            "avg_severity": NaN,
+            "priority": NaN,
+            "avg_stars": 4.93,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "safe",
+              "safe ride nice experience"
+            ]
+          },
+          {
+            "theme": "Fast, convenient, reliable service",
+            "sentiment": "pos",
+            "n_reviews": 13,
+            "frequency": 0.0453,
+            "avg_severity": NaN,
+            "priority": NaN,
+            "avg_stars": 4.92,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "good service",
+              "convenience"
+            ]
+          },
+          {
+            "theme": "Safe ride experience",
+            "sentiment": "pos",
+            "n_reviews": 4,
+            "frequency": 0.0139,
+            "avg_severity": NaN,
+            "priority": NaN,
+            "avg_stars": 4.75,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "very safe",
+              "excellent ride"
+            ]
+          },
+          {
+            "theme": "Captains earn good income",
+            "sentiment": "pos",
+            "n_reviews": 1,
+            "frequency": 0.0035,
+            "avg_severity": NaN,
+            "priority": NaN,
+            "avg_stars": 5.0,
+            "flag_high_severity_high_stars": false,
+            "examples": [
+              "opportunities to earn for the captains"
+            ]
+          }
+        ],
+        "robustness_top5_overlap_priority_vs_frequency": 5,
+        "top5_by_priority": [
+          "Captains overcharging passengers",
+          "Captains demand extra cash",
+          "Captains rude and demand extra cash",
+          "Captains frequently cancel rides",
+          "Unresponsive Customer Support"
+        ],
+        "top5_by_frequency": [
+          "Captains overcharging passengers",
+          "Captains demand extra cash",
+          "Unresponsive Customer Support",
+          "Captains rude and demand extra cash",
+          "Captains frequently cancel rides"
+        ]
+      }
+    },
+    "safety": {
+      "captain": {
+        "n_aspects": 8,
+        "n_reviews": 7,
+        "share_of_reviews": 0.0235,
+        "examples": [
+          "No safely Drive",
+          "facing issues to receive froud calls",
+          "Rapido Rider's Data your responsibility or not ?",
+          "rider ismein Puri tara unsafe hai",
+          "no security for riders"
+        ]
+      },
+      "rider": {
+        "n_aspects": 16,
+        "n_reviews": 15,
+        "share_of_reviews": 0.0523,
+        "examples": [
+          "drivers are using vehicles which are different then the registered one on the app",
+          "abusing me and harrassing me",
+          "blackmailing me that he will file a complaint",
+          "Keep giving them a platform to harass women",
+          "unsafe for female riders"
+        ]
+      }
+    },
+    "label_model": "openai/gpt-oss-120b"
+  },
+  "evaluation": {
+    "gold_labeled_by": "claude (AI), not hand-labeled",
+    "n_test_reviews": 70,
+    "match_high": 0.8,
+    "match_low": 0.6,
+    "ours": {
+      "phrase_level": {
+        "recall": 0.7238,
+        "recall_multi_complaint_reviews": 0.7333,
+        "n_gold_items": 105,
+        "n_multi_reviews": 29
+      },
+      "theme_level": {
+        "recall": 0.4381,
+        "recall_multi_complaint_reviews": 0.44,
+        "n_gold_items": 105,
+        "n_multi_reviews": 29
+      },
+      "precision_strict": 0.9012,
+      "precision_with_judge": 0.9753,
+      "n_phrases": 81,
+      "n_unmatched_judged_real": 6,
+      "n_judge_decisions": 105
+    },
+    "bertopic": {
+      "recall": 0.1524,
+      "recall_multi_complaint_reviews": 0.1733,
+      "n_gold_items": 105,
+      "n_multi_reviews": 29,
+      "n_topics": 7,
+      "n_outliers_before_reduction": 49
+    }
+  },
+  "trend": {
+    "app": "rider",
+    "series_regex": {
+      "Tip / extra-money demands": "\\btips?\\b|extra (?:money|cash|amount|payment|paise|pesa)|more money|demand(?:ed|s|ing)? (?:extra|more|money|cash)|asked for (?:money|cash)",
+      "Fare higher than shown": "(?:higher|more) than (?:shown|quoted|displayed|the app|estimate|booked)|overcharg|fare (?:changed|increased|went up)|price (?:changed|increased)"
+    },
+    "ccpa_order_date": "2026-09-15",
+    "partial_month": "2026-10",
+    "series": {
+      "Tip / extra-money demands": {
+        "by_month": {
+          "2026-03": {
+            "k": 3,
+            "n": 37,
+            "share": 0.0811,
+            "ci95": [
+              0.028,
+              0.213
+            ]
+          },
+          "2026-04": {
+            "k": 4,
+            "n": 38,
+            "share": 0.1053,
+            "ci95": [
+              0.0417,
+              0.2413
+            ]
+          },
+          "2026-05": {
+            "k": 3,
+            "n": 37,
+            "share": 0.0811,
+            "ci95": [
+              0.028,
+              0.213
+            ]
+          },
+          "2026-06": {
+            "k": 2,
+            "n": 35,
+            "share": 0.0571,
+            "ci95": [
+              0.0158,
+              0.1861
+            ]
+          },
+          "2026-07": {
+            "k": 4,
+            "n": 34,
+            "share": 0.1176,
+            "ci95": [
+              0.0467,
+              0.2662
+            ]
+          },
+          "2026-08": {
+            "k": 5,
+            "n": 36,
+            "share": 0.1389,
+            "ci95": [
+              0.0608,
+              0.2866
+            ]
+          },
+          "2026-09": {
+            "k": 2,
+            "n": 37,
+            "share": 0.0541,
+            "ci95": [
+              0.015,
+              0.177
+            ]
+          },
+          "2026-10": {
+            "k": 1,
+            "n": 33,
+            "share": 0.0303,
+            "ci95": [
+              0.0054,
+              0.1532
+            ]
+          }
+        },
+        "pre_order_share": 0.0968,
+        "pre_order_ci95": [
+          0.0642,
+          0.1434
+        ],
+        "pre_order_months": "2026-03..2026-08"
+      },
+      "Fare higher than shown": {
+        "by_month": {
+          "2026-03": {
+            "k": 4,
+            "n": 37,
+            "share": 0.1081,
+            "ci95": [
+              0.0429,
+              0.2471
+            ]
+          },
+          "2026-04": {
+            "k": 3,
+            "n": 38,
+            "share": 0.0789,
+            "ci95": [
+              0.0272,
+              0.208
+            ]
+          },
+          "2026-05": {
+            "k": 1,
+            "n": 37,
+            "share": 0.027,
+            "ci95": [
+              0.0048,
+              0.1382
+            ]
+          },
+          "2026-06": {
+            "k": 0,
+            "n": 35,
+            "share": 0.0,
+            "ci95": [
+              0.0,
+              0.0989
+            ]
+          },
+          "2026-07": {
+            "k": 2,
+            "n": 34,
+            "share": 0.0588,
+            "ci95": [
+              0.0163,
+              0.1909
+            ]
+          },
+          "2026-08": {
+            "k": 1,
+            "n": 36,
+            "share": 0.0278,
+            "ci95": [
+              0.0049,
+              0.1417
+            ]
+          },
+          "2026-09": {
+            "k": 0,
+            "n": 37,
+            "share": 0.0,
+            "ci95": [
+              0.0,
+              0.0941
+            ]
+          },
+          "2026-10": {
+            "k": 0,
+            "n": 33,
+            "share": 0.0,
+            "ci95": [
+              0.0,
+              0.1043
+            ]
+          }
+        },
+        "pre_order_share": 0.0507,
+        "pre_order_ci95": [
+          0.0285,
+          0.0885
+        ],
+        "pre_order_months": "2026-03..2026-08"
+      }
+    },
+    "any_complaint_share_by_month": {
+      "2026-03": 0.5405,
+      "2026-04": 0.6579,
+      "2026-05": 0.5676,
+      "2026-06": 0.2571,
+      "2026-07": 0.6176,
+      "2026-08": 0.7222,
+      "2026-09": 0.3243,
+      "2026-10": 0.3333
+    },
+    "app_version_split": "not done: 45 reviews per month is too few to split further",
+    "framing": "post-order window too short to call; no causal claim"
+  },
+  "compare_apps": {
+    "top5": {
+      "rider": [
+        "Captains overcharging passengers",
+        "Captains demand extra cash",
+        "Captains rude and demand extra cash",
+        "Captains frequently cancel rides",
+        "Unresponsive Customer Support"
+      ],
+      "captain": [
+        "Captains earning insufficient due to high costs",
+        "Unresponsive customer support",
+        "Insufficient earnings for captains",
+        "Insufficient order volume",
+        "Captains receiving low per‑km fares"
+      ]
+    },
+    "hypotheses": [
+      {
+        "rider_theme": "Captains overcharging passengers",
+        "captain_theme": "Captains receiving low per‑km fares",
+        "hypothesis": "Drivers overcharge to compensate for low per‑km rates set by the platform",
+        "how_to_test": "Compare trip fare breakdowns with per‑km rates and identify instances where final fare exceeds expected amount"
+      },
+      {
+        "rider_theme": "Captains frequently cancel rides",
+        "captain_theme": "Insufficient order volume",
+        "hypothesis": "Low order volume leads drivers to cancel rides hoping for better matches",
+        "how_to_test": "Analyze cancellation timestamps against order queue length and driver idle time metrics"
+      },
+      {
+        "rider_theme": "Captains demand extra cash",
+        "captain_theme": "Captains earning insufficient due to high costs",
+        "hypothesis": "High operating costs make drivers request extra cash from riders",
+        "how_to_test": "Correlate driver cost data (fuel, maintenance) with frequency of extra‑cash requests in ride logs"
+      }
+    ],
+    "hypotheses_model": "openai/gpt-oss-120b"
+  },
+  "judge_spotcheck": {
+    "n": 20,
+    "n_agree": 20,
+    "agreement": 1.0,
+    "agreement_ci95": [
+      0.8389,
+      1.0
+    ],
+    "checked_by": "Abel (by hand)"
+  },
+  "gold_spotcheck": {
+    "n": 20,
+    "n_agree": 20,
+    "agreement": 1.0,
+    "agreement_ci95": [
+      0.8389,
+      1.0
+    ],
+    "checked_by": "Abel (by hand)",
+    "notes": []
+  }
+}

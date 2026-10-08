@@ -1,0 +1,12 @@
+# secrets
+.env
+
+# local environment
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# raw scrapes (may still hold personal fields mid-scrape) and LLM cache
+data/raw/
+cache/

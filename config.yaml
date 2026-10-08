@@ -1,0 +1,208 @@
+# Single source of settings for the whole pipeline.
+seed: 42
+
+apps:
+  # Copied from the Play Store URLs and verified with google_play_scraper.app().
+  # Note the trap: the CAPTAIN (driver) app's ID is com.rapido.rider.
+  rider:
+    app_id: com.rapido.passenger   # "Rapido: Bike-Taxi, Auto & Cabs"
+  captain:
+    app_id: com.rapido.rider       # "Rapido Captain: Drive & Earn"
+
+collect:
+  lang: en
+  country: in
+  start_month: "2026-03"     # oldest month we want (inclusive); revisit after Step 1 counts
+  end_month: "2026-10"       # newest month (inclusive; October is partial)
+  batch_size: 200            # reviews per request (Play Store max per page)
+  max_reviews_per_app: 100000 # safety cap only; the loop stops at start_month. Raised from 10,000 on 2026-10-06
+                              # after the coverage check (rider ~370/day, captain ~120/day); Abel chose Mar-Oct.
+  coverage_check_after: 2000 # project how many reviews reaching start_month needs
+  delay_seconds: [1, 3]      # random polite delay between requests
+  timezone: Asia/Kolkata     # months are assigned in IST
+
+clean:
+  # No length filter (v2): short reviews like "unsafe driver" carry real issues.
+  per_month_per_app: 200     # sample size per month per app
+  spam_repeat_threshold: 5   # identical text under 5+ different reviewIds = possible spam...
+  spam_min_words: 6          # ...but only for texts this long. Deviation from plan (2026-10-06, approved by Abel):
+                             # at 100K reviews, short phrases repeat naturally ("good ride" x175, captains'
+                             # "app not working" x15, "rate bahut kam hai" x5). No 6+ word text repeated 5+ times,
+                             # i.e. no copy-paste spam exists. Set to 1 to restore the original plan rule.
+  # A review is removed as content-free only if EVERY word is on this list ("worst app" goes,
+  # "worst app captain asked tip" stays). Abel owns this list. Deliberately excluded because they
+  # name a specific issue: fast, slow, cheap, costly, safe, fraud, cancel, price, fare, time.
+  generic_words: [
+    # praise / complaint adjectives
+    good, gud, gd, nice, super, superb, excellent, great, awesome, osm, awsm, best, better, amazing,
+    fantastic, wonderful, perfect, cool, fine, ok, okay, helpful, useful, love, like, wow,
+    bad, worst, poor, useless, waste, pathetic, horrible, terrible, hate, disgusting, rubbish,
+    # the subject itself
+    app, apps, application, rapido, service, services, experience, platform,
+    # filler / intensifiers / ratings
+    very, so, too, really, much, most, more, is, it, its, this, that, thats, the, a, an, and, i, my, me, you,
+    your, was, are, of, for, to, all, overall, thanks, thank, thankyou, star, stars, rating, nyc,
+    # Hinglish generic sentiment
+    accha, acha, achha, achcha, bahut, bhut, bohot, bekar, bakwas, badiya, badhiya, mast, hai, h, ekdum
+  ]
+
+llm:
+  # Cloud only, no local LLM (CPU-only laptop). Pin one model per role; on 429 wait, never switch.
+  providers:
+    groq:
+      base_url: https://api.groq.com/openai/v1
+      key_env: GROQ_API_KEY
+      tokens_per_day: 200000   # free tier TPD per model (console Limits page); headers don't report it
+      supports_seed: true
+    gemini:
+      base_url: https://generativelanguage.googleapis.com/v1beta/openai/
+      key_env: GEMINI_API_KEY
+      supports_seed: false     # Gemini's OpenAI-compatible endpoint rejects "seed" (tested 2026-10-06)
+  roles:
+    # Ranked best-first, PINNED from the Step 3 bake-off on gold_dev (2026-10-06, eval/model_bakeoff.md):
+    # recall@0.7 qwen 0.76 > gpt-oss-120b 0.63 > gpt-oss-20b 0.49; gemini-3.8-flash could not be scored
+    # (503 "high demand" on Google's side). Main = best Groq model; secondary = best of a different family.
+    main:                      # extraction
+      # qwen: Groq free tier caps OUTPUT at 1,000 tokens/min (OTPM) and judges a request by its
+      # max_completion_tokens, so the cap must sit below 1,000. Truncated answers are split, never cached.
+      - {provider: groq, model: qwen/qwen3.8-27b, params: {reasoning_effort: none, max_completion_tokens: 900}}
+      - {provider: groq, model: openai/gpt-oss-120b, params: {reasoning_effort: low}}
+      - {provider: groq, model: openai/gpt-oss-20b, params: {reasoning_effort: low}}
+    secondary:                 # tie-breaker, consistency test, eval judge: must differ in family from main (qwen)
+      - {provider: groq, model: openai/gpt-oss-120b, params: {reasoning_effort: low}}
+      - {provider: gemini, model: gemini-3.8-flash, params: {reasoning_effort: low}}
+      # gemini-2.5-flash: listed in the catalog but returns 404 "no longer available to new users" (2026-10-06)
+  temperature: 0
+  max_completion_tokens: 4096
+  max_retries: 4
+  max_short_wait_seconds: 120  # a rate-limit wait longer than this = daily limit -> stop and resume later
+
+extract:
+  # Final sample (Abel's decision 2026-10-06): 45 per month per app = 720 reviews, a subset of the 200/month
+  # pool in sample.csv, so extraction fits ONE day of Groq's 200K tokens/day free quota (~198 tokens/review).
+  # Each cell keeps its gold and consistency-test reviews, then random fill. Saved as data/sample_final.csv.
+  final_per_month_per_app: 45
+  consistency_n_per_app: 25
+  split_above_est_output_tokens: 700   # split a batch upfront if its estimated output exceeds this (cap is 900)
+  batch_size: 8   # was 20 in the plan; qwen on Groq free tier allows only 1,000 OUTPUT tokens/min (OTPM) and
+                  # uses ~94 output tokens/review. Oversized requests are also split automatically.
+  # Abel's product decision (2026-10-06): the model picks ONE label per negative aspect; code maps it to
+  # severity. Plan table + EARNINGS, added because captain pay complaints fit none of the original labels.
+  impact_severity:
+    SAFETY: 5           # physical safety risk or harassment
+    MONEY_LOST: 5       # charged wrongly, refund not received, paid for no ride
+    NO_RIDE: 5          # could not get a ride at all
+    MAJOR_LOSS: 4       # cancelled after accepting, overcharged vs quote, asked for tip or extra money
+    EARNINGS: 4         # captain pay too low, high commission, incentives not paid, unfair penalties/deductions
+    BAD_EXPERIENCE: 3   # ride happened but was bad (rude, wrong route, long wait)
+    MINOR: 2            # minor annoyance (confusing UI, too many notifications)
+    COSMETIC: 1         # cosmetic issue or a suggestion
+
+embeddings:
+  model: google/embeddinggemma-300m
+  fallback_model: Qwen/Qwen3-Embedding-0.6B
+
+safety_net:
+  # Signals never decide anything; they only send a review to the tie-breaker (Step 3).
+  keywords:                    # matched as whole words/phrases, case-insensitive
+    safety: [unsafe, not safe, harass, harassed, harassment, misbehave, misbehaved, misbehaviour, misbehavior,
+             abuse, abused, abusive, threat, threatened, threatening, accident, drunk, rash, rashly, over speed,
+             overspeed, speeding, molest, inappropriate, scared, danger, dangerous, helmet,
+             badtameez, badtameezi, gaali, gali, nasha, nashe, sharab, sharabi, khatarnak, chhedkhani, dar lag,
+             असुरक्षित, बदतमीज, बदतमीजी, गाली, शराब, नशे, दुर्घटना, एक्सीडेंट, डर]
+    money: [refund, refunded, overcharge, overcharged, extra charge, extra charged, extra money, extra amount,
+            extra fare, more money, deducted, deduct, double charged, charged twice, cancellation fee,
+            cancellation charge, penalty, fraud, scam, cheat, cheated, cheating, loot, looted, wallet,
+            paisa zyada, zyada paise, jyada paise, extra paise, paise kaat, kaat liya, paisa kata,
+            paise, paisa, pese, pesa, paise liye, rupaye,       # romanized money words (gap found on gold_dev)
+            पैसे, रिफंड, धोखा, फ्रॉड]
+    tip: [tip, tips, tipping, bakshish, baksheesh, टिप]
+  seeds:                       # ~20 seed complaints for meaning similarity (rider + captain side), by category
+    safety:
+      - driver was drunk
+      - captain was driving rashly and dangerously
+      - I felt unsafe during the ride
+      - the captain harassed me
+      - captain misbehaved and used abusive language
+      - we had an accident during the ride
+      - captain touched me inappropriately
+      - no helmet was given for the bike ride
+      - driver nashe mein tha
+      - customer threatened and abused the captain
+    money:
+      - refund not received
+      - I was charged extra money
+      - money deducted from wallet without a ride
+      - charged a cancellation fee unfairly
+      - paid but the ride never happened
+      - final fare was much higher than shown
+      - my earnings or incentive were not paid
+      - penalty deducted from captain earnings unfairly
+    tip:
+      - captain asked for a tip
+      - captain demanded extra money in cash
+      - app forced me to add a tip to get a ride
+      - captain ne zyada paise maange
+  # Contrast anchors (praise/neutral). Score = max sim to a seed - max sim to an anchor. Added 2026-10-06:
+  # plain seed similarity ranked "good driver"/"nice driver" at the very top (short texts match on the topic
+  # word "driver"). Proxy check (1-star vs 5-star AUC): 0.63 plain -> 0.90 with contrast.
+  contrast_anchors:
+    - good driver
+    - nice ride
+    - captain was polite and helpful
+    - good app
+    - fast and cheap ride
+    - good earning app
+    - easy to use
+    - on time pickup
+    - smooth ride
+    - good service
+  prefix_match_min_len: 5      # keywords this long also match word starts: fraud -> fraudsters, deduct -> deduction
+  # Threshold on the contrast score is computed from gold_dev on every run: the lowest score among dev reviews
+  # whose gold labels contain a critical term (and that keywords missed), minus this margin. Errs low on purpose.
+  threshold_margin: 0.02
+  gold_critical_terms:         # identifies safety / money-lost / extra-money items in the (English) gold labels
+    [unsafe, safety, security, harass, abuse, threat, drunk, rash, accident, creepy, molest,
+     extra money, charged more, charged extra, charged despite, more than app, higher than, absurd charges,
+     took more, refund, deduction, deducted, fraud, steals, overcharg, tip]
+
+verify:
+  evidence_min_ratio: 90       # rapidfuzz ratio for "evidence appears in the review"
+  meaning_threshold: null      # set automatically in Step 4 (5th percentile of known-good gold_dev aspects)
+
+cluster:
+  k_min: 5
+  k_max: 20
+  # K choice (deviation from "best silhouette", 2026-10-07): the complaint curve was flat (0.13-0.16 for every K)
+  # and "best" K=5 mixed rider and captain problems into 5 giant themes. Scores within tie_tolerance of the best
+  # are treated as ties and the LARGEST tied K wins (finer, actionable themes); K is capped so themes average
+  # at least min_avg_cluster_size phrases (praise K=19 on 86 phrases gave single-phrase themes).
+  tie_tolerance: 0.01
+  min_avg_cluster_size: 10
+
+evaluate:
+  match_high: 0.80               # cosine >= this: match without asking
+  match_low: 0.60                # cosine < this: no match; in between -> LLM judge (secondary, different family)
+  judge_batch: 20
+  spotcheck_n: 20                # judge decisions Abel checks by hand (his Step 7 task)
+  bertopic_min_topic_size: 8
+
+label:
+  phrases_per_cluster: 15        # nearest to the centroid, sent to the LLM for a theme name
+  role: secondary                # gpt-oss-120b: separate quota from extraction; same model labels BERTopic topics
+  # Merge rules. A fixed centroid threshold failed in the dry run (2026-10-06): ALL complaint clusters sit at
+  # 0.90-0.97 centroid cosine, so 0.90 merged 10 different themes into one. Names now drive merging.
+  merge_label_cosine: 0.85       # theme names mean the same thing (STS cosine of the names)...
+  merge_label_ratio: 90          # ...or are near-identical wording (rapidfuzz token_set_ratio)...
+  merge_centroid_pct: 98         # ...or centroids are in the top 2% most similar pairs (relative, from the data)
+  merge_centroid_min_label_cosine: 0.70   # ...AND the names are at least loosely similar
+  flag_min_severity: 4           # cross-check: high severity but...
+  flag_min_stars: 3.5            # ...high stars is suspicious
+
+ccpa_order_month: "2026-09"
+
+trend:
+  ccpa_order_date: "2026-09-15"     # mid-September 2026 (marker on the chart; September = transition month)
+  series:                           # regex on extracted NEGATIVE phrases (English, normalized by the extractor)
+    "Tip / extra-money demands": "\\btips?\\b|extra (?:money|cash|amount|payment|paise|pesa)|more money|demand(?:ed|s|ing)? (?:extra|more|money|cash)|asked for (?:money|cash)"
+    "Fare higher than shown": "(?:higher|more) than (?:shown|quoted|displayed|the app|estimate|booked)|overcharg|fare (?:changed|increased|went up)|price (?:changed|increased)"

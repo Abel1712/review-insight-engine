@@ -1,0 +1,29 @@
+# data collection
+google-play-scraper>=1.2.7
+
+# data + ML
+pandas>=2.2
+numpy>=1.26
+scikit-learn>=1.5
+sentence-transformers>=5.1   # EmbeddingGemma needs a recent version
+transformers>=4.56
+bertopic>=0.16
+
+# LLM providers: Groq + Gemini, both via their OpenAI-compatible endpoints
+openai>=1.40
+
+# LLM output validation + evidence matching
+pydantic>=2.7
+rapidfuzz>=3.9
+
+# plotting + UI
+matplotlib>=3.8
+streamlit>=1.38
+
+# utilities
+openpyxl>=3.1        # judge spot-check sheet (Excel)
+tabulate>=0.9        # pandas -> Markdown tables in eval reports
+python-dotenv>=1.0
+pyyaml>=6.0
+tqdm>=4.66
+tenacity>=8.5

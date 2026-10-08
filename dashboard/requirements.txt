@@ -1,0 +1,5 @@
+# Streamlit viewer only (Streamlit Community Cloud installs this file because it sits next to dashboard/app.py).
+# Reads precomputed files: no torch, no LLM SDKs, no API keys.
+streamlit>=1.38
+pandas>=2.2
+altair>=5
