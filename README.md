@@ -7,7 +7,7 @@
 ## Headline finding
 Riders' biggest complaint is captains asking for more money than the app shows (**23.7%** of rider reviews: overcharging versus the app fare, plus **13.6%**: demands for extra cash). Captains' biggest complaint is that earnings don't cover costs (**14.4%**). These may be two sides of one pricing problem. → **[Read the brief](BRIEF.md)**
 
-![Dashboard: rider complaint themes ranked by priority](analysis/figures/dashboard.png)
+![Dashboard: Revi the mascot, headline numbers and the rider/captain explorer](analysis/figures/dashboard.png)
 
 ![Rider complaints about tips and extra money by month](analysis/figures/trend_tipping.png)
 

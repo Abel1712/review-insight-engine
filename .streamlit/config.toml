@@ -1,0 +1,36 @@
+# Dashboard theme: a Notion-like page in a collage-moodboard palette (warm paper, forest green, terracotta, sage,
+# mustard). Type: Inter for text, Fraunces for headings, JetBrains Mono for small tags. Light and dark variants.
+# backgroundColor is the colour of the raised content sheets; dashboard/ui.py paints the page behind them
+# (light: warm paper #f2e8df, dark: deep forest #0a1714) and adds grain and colour washes.
+[theme]
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+headingFont = "Fraunces:https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&display=swap"
+codeFont = "JetBrains Mono:https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+baseFontSize = 15
+headingFontWeights = 600
+baseRadius = "8px"
+buttonRadius = "7px"
+showWidgetBorder = true
+
+[theme.light]
+primaryColor = "#b84a26"
+backgroundColor = "#fdf8f3"
+secondaryBackgroundColor = "#f3e9e0"
+textColor = "#1d2e2a"
+borderColor = "#e3d4c8"
+linkColor = "#b84a26"
+codeBackgroundColor = "#f3e9e0"
+dataframeHeaderBackgroundColor = "#f6ede5"
+
+[theme.dark]
+primaryColor = "#f08f6f"
+backgroundColor = "#191f1d"
+secondaryBackgroundColor = "#222927"
+textColor = "#f1ebe3"
+borderColor = "#2b3532"
+linkColor = "#f08f6f"
+codeBackgroundColor = "#222927"
+dataframeHeaderBackgroundColor = "#1e2523"
+
+[client]
+toolbarMode = "viewer"  # keeps the menu's System/Light/Dark picker (the page's theme toggle uses it), hides dev tools

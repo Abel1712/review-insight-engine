@@ -18,7 +18,7 @@ rapidfuzz>=3.9
 
 # plotting + UI
 matplotlib>=3.8
-streamlit>=1.38
+streamlit>=1.65     # dashboard theme (light/dark) needs 1.51+; tested on 1.65
 
 # utilities
 openpyxl>=3.1        # judge spot-check sheet (Excel)

@@ -1,5 +1,5 @@
 # Streamlit viewer only (Streamlit Community Cloud installs this file because it sits next to dashboard/app.py).
 # Reads precomputed files: no torch, no LLM SDKs, no API keys.
-streamlit>=1.38
+streamlit>=1.65     # tested version; the light/dark theme in .streamlit/config.toml needs 1.51+
 pandas>=2.2
-altair>=5
+altair>=5.4         # alt.when() conditions
