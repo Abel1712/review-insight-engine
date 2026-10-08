@@ -1,6 +1,6 @@
 # Rapido: what to fix first (from 585 Play Store reviews, Mar–Oct 2026)
 
-> **DRAFT for Abel to rewrite in his own words.** Every number comes from `results/metrics.json`.
+>  Every number comes from `results/metrics.json`.
 
 **Headline:** Riders' biggest complaint is captains asking for more money than the app shows: 23.7% of rider reviews say captains overcharge versus the app fare and another 13.6% report demands for extra cash, while captains' biggest complaint is that their earnings don't cover costs (14.4%). These look like two sides of one pricing problem.
 
